@@ -1,0 +1,5 @@
+wheel
+asyncio
+flask-sqlalchemy
+flask[async]
+mysql-connector-python
