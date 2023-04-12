@@ -1,2 +1,2 @@
-# snazzy
-snazzy is a place for people to share out their selfs, ideas, events, or just talk about life. anything goes.
+# Snazzy
+Stay ahead of the game and never miss a beat with Snazzy! It's a platform where you can share your thoughts, ideas, news, events, or just talk about life. Anything goes on Snazzy!
