@@ -1,3 +1,7 @@
+body {
+    background-color: snow;
+}
+
 .block {
     border: 1px solid gray;
     float: left;

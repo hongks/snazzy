@@ -6,12 +6,13 @@ from sqlalchemy.orm import Session
 from app import db
 
 
-<<<<<<< HEAD
-class Topic(db.Model):
-    __tablename__ = "topics"
+class Tags(db.Model):
+    __tablename__ = "tags"
 
     id = db.Column(db.Integer, primary_key=True)
-    topic = db.Column(db.Text)
+    name = db.Column(db.Text)
+    description = db.Column(db.Text)
+    counts = db.Column(db.Integer)
 
     created_by = db.Column(db.Integer, db.ForeignKey("users.id"))
     created_on = db.Column(db.DateTime)
@@ -19,8 +20,46 @@ class Topic(db.Model):
     updated_on = db.Column(db.DateTime)
 
 
-=======
->>>>>>> bddd5045e3799de99f6b3d41baa5627ba33d6ee7
+class Topic(db.Model):
+    __tablename__ = "topics"
+
+    id = db.Column(db.Integer, primary_key=True)
+    topic = db.Column(db.Text)
+    message = db.Column(db.Text)
+    counts = db.Column(db.Integer)
+
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"))
+    created_on = db.Column(db.DateTime)
+    updated_by = db.Column(db.Integer, db.ForeignKey("users.id"))
+    updated_on = db.Column(db.DateTime)
+
+
+class TagTopic(db.Model):
+    __tablename__ = "tags_topics"
+
+    id = db.Column(db.Integer, primary_key=True)
+    topic_id = db.Column(db.Integer, db.ForeignKey("topics.id"))
+    tag_id = db.Column(db.Integer, db.ForeignKey("tags.id"))
+
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"))
+    created_on = db.Column(db.DateTime)
+    updated_by = db.Column(db.Integer, db.ForeignKey("users.id"))
+    updated_on = db.Column(db.DateTime)
+
+
+class Discuss(db.Model):
+    __tablename__ = "discussions"
+
+    id = db.Column(db.Integer, primary_key=True)
+    topic_id = db.Column(db.Integer, db.ForeignKey("topics.id"))
+    message = db.Column(db.Text)
+
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"))
+    created_on = db.Column(db.DateTime)
+    updated_by = db.Column(db.Integer, db.ForeignKey("users.id"))
+    updated_on = db.Column(db.DateTime)
+
+
 class User(db.Model):
     __tablename__ = "users"
 

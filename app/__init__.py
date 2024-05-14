@@ -5,15 +5,17 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 class Config:
+    SECRET_KEY = "snazzy"
+
     SQLALCHEMY_DATABASE_URI = (
         "mysql+mysqlconnector://snazzy:snazzy@{}:{}/snazzy".format(
             os.getenv("MYSQL_HOST", "localhost"),
             os.getenv("MYSQL_PORT", 3306),
         )
     )
+    SQLALCHEMY_ECHO = False
     SQLALCHEMY_MAX_OVERFLOW = 100
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_ECHO = False
 
 
 def create_app():
